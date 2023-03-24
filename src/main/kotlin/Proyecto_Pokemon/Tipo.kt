@@ -1,4 +1,11 @@
 package Proyecto_Pokemon
 
-class Tipo {
+class Tipo(tipo:String) {
+
+    var tipo = tipo
+    init {
+        this.tipo = tipo
+    }
+
+
 }
