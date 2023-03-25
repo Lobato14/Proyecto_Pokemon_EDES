@@ -44,6 +44,12 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.vida = vida
     }
 
+    // Función para que el Pokemon ataque
+    fun atacar(ataque: Ataque, objetivo: Pokemon) {
+        println("$nombre realiza ${ataque.nombre}")
+        objetivo.recibirAtaque(ataque)
+    }
+
     // Función que recibe el ataque
     fun recibirAtaque(ataque: Ataque) {
         val efectividad = tipo.comprobarEfectividad(ataque.tipo)

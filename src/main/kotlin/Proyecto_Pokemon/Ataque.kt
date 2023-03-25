@@ -30,9 +30,11 @@ class Ataque(nombre:String, tipo:Tipo, danio:Int) {
         this.tipo = tipo
         this.danio = danio
     }
+
+
     // Función to String
     override fun toString(): String {
-        return "Pokemon(nombre='$nombre', tipo=$tipo, danio=$danio)"
+        return "Ataque(nombre='$nombre', tipo=$tipo, danio=$danio)"
     }
 
 }
