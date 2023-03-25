@@ -55,52 +55,52 @@ fun main(){
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
     println("---¡COMIENZA LA BATALLA POKEMON!----")
-    println("------${pikachu.nombre} VS ${charmander.nombre}------")
+    println("------${Equipo1[0].nombre} VS ${Equipo2[0].nombre}------")
     println("------------------------------------")
 
     // Turno del primer Pokemon
     var turno = 0
-    while (pikachu.vida > 0 && charmander.vida > 0) {
+    while (Equipo1.size > 0 && Equipo2.size > 0) {
         turno +=1
         // Mostrar el turno actual
         println("Turno $turno:")
         println("")
         // Elegir el ataque del primer Pokemon
-        println("Es el turno de ${pikachu.nombre}.                  Vida Total:${pikachu.vida}" +
+        println("Es el turno de ${Equipo1[0].nombre}.                  Vida Total:${Equipo1[0].vida}" +
                 "\nElige un ataque:")
         println("---------")
-        mostrarAtaquesPick()
+        mostrarAtaques1()
         println("---------")
 
         var ataqueAElegirPick = readln().toInt() - 1
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
-        if (charmander.vida <= 0) {
+        if (Equipo2[0].vida <= 0) {
             println(
-                "${charmander.nombre} se debilitó.\n" +
+                "${Equipo2[0].nombre} se debilitó.\n" +
                         "" +
-                        "gana ${pikachu.nombre} con ${pikachu.vida} de vida restante"
+                        "gana ${Equipo1[0].nombre} con ${Equipo1[0].vida} de vida restante"
             )
         }
 
         // Elegir el ataque del segundo Pokemon
-        println("Es el turno de ${charmander.nombre}.                  Vida Total:${charmander.vida}" +
+        println("Es el turno de ${Equipo2[0].nombre}.                  Vida Total:${Equipo2[0].vida}" +
                 "\nElige un ataque:")
         println("---------")
-        mostrarAtaquesChar()
+        mostrarAtaques2()
         println("---------")
 
         var ataqueAElegirChar = readln().toInt() - 1
         // Mostrar los ataques que se van a realizar
-        println("${pikachu.nombre} usó ${ataquesPikachu[ataqueAElegirPick]}!")
-        println("${charmander.nombre} usó ${ataquesCharmander[ataqueAElegirChar]}!")
+        println("${Equipo1[0].nombre} usó ${ataquesPikachu[ataqueAElegirPick]}!")
+        println("${Equipo2[0].nombre} usó ${ataquesCharmander[ataqueAElegirChar]}!")
         println("---------------")
         // Calcular el daño que reciben los Pokemon
         pikachu.recibirAtaque(ataquesCharmander[ataqueAElegirChar])
-        if (pikachu.vida <= 0) {
+        if (Equipo1[0].vida <= 0) {
             println(
-                "${pikachu.nombre} se debilitó.\n" +
+                "${Equipo1[0].nombre} se debilitó.\n" +
                         "" +
-                        "gana ${charmander.nombre} con ${charmander.vida} de vida restante"
+                        "gana ${Equipo2[0].nombre} con ${Equipo2[0].vida} de vida restante"
             )
         }
     }
