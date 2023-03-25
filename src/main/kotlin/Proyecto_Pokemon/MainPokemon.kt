@@ -10,6 +10,21 @@ fun main(){
     var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
 
 
+    var Equipo1 = mutableListOf<Pokemon>()
+    var Equipo2 = mutableListOf<Pokemon>()
+
+    var elegirpokemon1 = readln().toInt()
+
+    Equipo1.add(listaPokemon[elegirpokemon1])
+
+    var elegirpokemon2 = readln().toInt()
+
+    Equipo2.add(listaPokemon[elegirpokemon2])
+
+
+
+
+
     // Listas de ataques de Picachu
     var ataquesPikachu = listOf(
         Ataque("Impactrueno", Tipo("eléctrico"), 20),
