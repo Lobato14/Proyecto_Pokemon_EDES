@@ -44,6 +44,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.vida = vida
     }
 
+
     // Función para que el Pokemon ataque
     fun atacar(ataque: Ataque, objetivo: Pokemon) {
         println("$nombre realiza ${ataque.nombre}")
