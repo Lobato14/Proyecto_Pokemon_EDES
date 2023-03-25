@@ -1,5 +1,24 @@
 package Proyecto_Pokemon
 
+/**
+ * ## Clase [Tipo]
+ *
+ * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
+ *
+ * La clase [Tipo] se utiliza para asignar un Tipo a un pokemon para saber si es neutro,
+ * resistente o débil realizando un ataque o recibiéndolo.
+ *
+ * La enum class [Efectividad] sirve para medir el tipo de efectividad que tiene un ataque.
+ *
+ * La función [comprobarEfectividad] sirve para que lo que su nombre se refiere,
+ * comprueba lo efectivo que es un ataque.
+ *
+ * @param tipo String el cual se le asigna una Cadena la cual luego será comparada con las disponibles.
+ *
+ *
+ *
+ */
+
 class Tipo(tipo:String) {
 
     var tipo = tipo
@@ -14,6 +33,10 @@ class Tipo(tipo:String) {
         POQUITO_EFECTIVO
     }
     // Funcion que comprueba la efectividad
+
+
+
+
     fun comprobarEfectividad(tipoAtaque: Tipo): Efectividad {
         return when (tipo) {
             "fuego" -> when (tipoAtaque.tipo) {
