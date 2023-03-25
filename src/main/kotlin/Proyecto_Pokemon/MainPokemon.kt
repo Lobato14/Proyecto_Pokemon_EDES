@@ -26,9 +26,6 @@ fun main(){
     Equipo2.add(listaPokemon[elegirpokemon2])
 
 
-
-
-
     fun mostrarAtaques1() {
         for (ataque in ataquesPikachu) {
             println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")

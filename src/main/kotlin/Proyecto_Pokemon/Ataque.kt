@@ -31,7 +31,7 @@ class Ataque(nombre:String, tipo:Tipo, danio:Int) {
         this.danio = danio
     }
 
-    // Listas de ataques de Picachu
+    // Listas de ataques de Electricidad
     var ataquesElectrico = listOf(
         Ataque("Impactrueno", Tipo("eléctrico"), 20),
         Ataque("Cola Ferrea", Tipo("acero"), 10),
@@ -67,7 +67,7 @@ class Ataque(nombre:String, tipo:Tipo, danio:Int) {
         Ataque("Descarga", Tipo("eléctrico"), 25)
     )
 
-
+    var ataques = mapOf("eléctrico" to ataquesElectrico, "fuego" to ataquesFuego, "agua" to ataquesAgua, "lucha" to ataquesLucha, "hierba" to ataquesPlanta)
     // Función to String
     override fun toString(): String {
         return "Ataque(nombre='$nombre', tipo=$tipo, danio=$danio)"
