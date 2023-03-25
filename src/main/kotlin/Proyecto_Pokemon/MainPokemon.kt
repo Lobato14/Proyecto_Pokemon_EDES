@@ -3,37 +3,30 @@ package Proyecto_Pokemon
 
 fun main(){
 
+
+
     var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("Electrico"), 100, 100)
     var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("Fuego"), 90, 150)
     var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("hierba"), 50, 90)
     var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 60)
     var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
-
     var listaPokemon = listOf<Pokemon>(pikachu,charmander,bulbasur,machamp,squirtle)
+
 
     var Equipo1 = mutableListOf<Pokemon>()
     var Equipo2 = mutableListOf<Pokemon>()
 
-    var elegirpokemon1 = readln().toInt()
+    var elegirpokemon1 = readln().toInt()-1
 
     Equipo1.add(listaPokemon[elegirpokemon1])
 
-    var elegirpokemon2 = readln().toInt()
+    var elegirpokemon2 = readln().toInt()-1
 
     Equipo2.add(listaPokemon[elegirpokemon2])
 
 
-    fun mostrarAtaques1() {
-        for (ataque in ataquesPikachu) {
-            println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")
-        }
-    }
 
-    fun mostrarAtaques2(){
-        for (ataque in ataquesCharmander) {
-            println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")
-        }
-    }
+
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
@@ -52,10 +45,10 @@ fun main(){
         println("Es el turno de ${Equipo1[0].nombre}.                  Vida Total:${Equipo1[0].vida}" +
                 "\nElige un ataque:")
         println("---------")
-        mostrarAtaques1()
+        Equipo1[0].mostrarAtaque()
         println("---------")
 
-        var ataqueAElegirPick = readln().toInt() - 1
+        /*var ataqueAElegirPick = readln().toInt() - 1
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
         if (Equipo2[0].vida <= 0) {
             println(
@@ -86,5 +79,5 @@ fun main(){
                         "gana ${Equipo2[0].nombre} con ${Equipo2[0].vida} de vida restante"
             )
         }
-    }
-}
+    }*/
+}}
