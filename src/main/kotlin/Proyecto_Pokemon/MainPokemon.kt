@@ -42,9 +42,11 @@ fun main(){
             pokemonSeleccionado = selectorPokemon-1
             pokemonElegidoBoolean= true
 
+
+
         }
 
-
+        if (contadorTurnos>= 100) batallaAcabada= true
 
 
 
