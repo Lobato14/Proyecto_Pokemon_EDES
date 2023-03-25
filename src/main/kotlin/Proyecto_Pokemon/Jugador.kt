@@ -6,7 +6,7 @@ package Proyecto_Pokemon
  * @param pokemon da el nombre a dicho pokemon
  * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
  */
-class Jugador(pokemon:String) {
+class Jugador(pokemon:Pokemon) {
     var pokemon = pokemon
     // Inicializamos la variable pokemon
     init {

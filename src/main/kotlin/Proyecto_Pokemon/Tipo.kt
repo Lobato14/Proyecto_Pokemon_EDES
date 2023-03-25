@@ -31,10 +31,6 @@ class Tipo(tipo:String) {
         POQUITO_EFECTIVO
     }
     // Funcion que comprueba la efectividad
-
-
-
-
     fun comprobarEfectividad(tipoAtaque: Tipo): Efectividad {
         return when (tipo) {
             "fuego" -> when (tipoAtaque.tipo) {

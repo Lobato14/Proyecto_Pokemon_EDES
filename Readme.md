@@ -19,6 +19,7 @@ class Jugador(pokemon:String) {
     }
 }
 ```
+<hr>
 
 ## Clase ``Ataque``
 
@@ -108,4 +109,43 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
 }
 ``````
 <hr>
+
+## Clase Tipo
+
+En la clase Tipo se muestra el tipo de pokemon, la efectividad que tiene contra otros pokemon y según eltipo de pokemon tendrá una efectividad u otra y nos mostrará el tipo de efectividad que tiene.
+
+````
+fun comprobarEfectividad(tipoAtaque: Tipo): Efectividad {
+        return when (tipo) {
+            "fuego" -> when (tipoAtaque.tipo) {
+                "hierba" -> Efectividad.MUY_EFECTIVO
+                "agua" -> Efectividad.POQUITO_EFECTIVO
+                else -> Efectividad.NORMAL
+            }
+            "agua" -> when (tipoAtaque.tipo) {
+                "fuego" -> Efectividad.MUY_EFECTIVO
+                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                else -> Efectividad.NORMAL
+            }
+            "hierba" -> when (tipoAtaque.tipo) {
+                "agua" -> Efectividad.MUY_EFECTIVO
+                "fuego" -> Efectividad.POQUITO_EFECTIVO
+                else -> Efectividad.NORMAL
+            }
+            "normal" -> Efectividad.NORMAL
+            "eléctrico" -> when (tipoAtaque.tipo) {
+                "agua" -> Efectividad.MUY_EFECTIVO
+                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                "normal" -> Efectividad.POQUITO_EFECTIVO
+                else -> Efectividad.NORMAL
+            }
+            "lucha" -> when (tipoAtaque.tipo) {
+                "normal" -> Efectividad.MUY_EFECTIVO
+                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                else -> Efectividad.NORMAL
+            }
+            else -> Efectividad.NORMAL
+        }
+    }
+````
 
