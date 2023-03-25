@@ -31,6 +31,42 @@ class Ataque(nombre:String, tipo:Tipo, danio:Int) {
         this.danio = danio
     }
 
+    // Listas de ataques de Picachu
+    var ataquesElectrico = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Fuego
+    var ataquesFuego = listOf(
+        Ataque("Lanzallamas", Tipo("fuego"), 35),
+        Ataque("Arañazo", Tipo("normal"), 10),
+        Ataque("Ascuas", Tipo("fuego"), 25),
+        Ataque("Gruñido", Tipo("normal"), 5)
+    )
+    // Listas de ataques de Agua
+    var ataquesAgua = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Lucha
+    var ataquesLucha = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Planta
+    var ataquesPlanta = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+
 
     // Función to String
     override fun toString(): String {
