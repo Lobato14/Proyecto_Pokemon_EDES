@@ -40,83 +40,49 @@ fun main(){
     println("------------------------------------")
 
     // Turno del primer Pokemon
-    var turno = 1
+    var turno = 0
     while (pikachu.vida > 0 && charmander.vida > 0) {
+        turno +=1
         // Mostrar el turno actual
         println("Turno $turno:")
         println("")
         // Elegir el ataque del primer Pokemon
-        println("Es el turno de ${pikachu.nombre}. Elige un ataque:")
+        println("Es el turno de ${pikachu.nombre}.                  Vida Total:${pikachu.vida}" +
+                "\nElige un ataque:")
         println("---------")
         mostrarAtaquesPick()
         println("---------")
-        var ataqueAElegirPick = readln()
+
+        var ataqueAElegirPick = readln().toInt() - 1
+        charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
+        if (charmander.vida <= 0) {
+            println(
+                "${charmander.nombre} se debilitó.\n" +
+                        "" +
+                        "gana ${pikachu.nombre} con ${pikachu.vida} de vida restante"
+            )
+        }
+
         // Elegir el ataque del segundo Pokemon
-        println("Es el turno de ${charmander.nombre}. Elige un ataque:")
+        println("Es el turno de ${charmander.nombre}.                  Vida Total:${charmander.vida}" +
+                "\nElige un ataque:")
         println("---------")
         mostrarAtaquesChar()
         println("---------")
-        var ataqueAElegirChar = readln()
+
+        var ataqueAElegirChar = readln().toInt() - 1
         // Mostrar los ataques que se van a realizar
-        println("${pikachu.nombre} usó ${ataqueAElegirPick}!")
-        println("${charmander.nombre} usó ${ataqueAElegirChar}!")
+        println("${pikachu.nombre} usó ${ataquesPikachu[ataqueAElegirPick]}!")
+        println("${charmander.nombre} usó ${ataquesCharmander[ataqueAElegirChar]}!")
         println("---------------")
         // Calcular el daño que reciben los Pokemon
-        charmander.recibirAtaque(pikachu.atacar(ataqueAElegirPick,charmander))
-        if (charmander.vida <= 0) {
-            println("${charmander.nombre} se debilitó.")
-            break
+        pikachu.recibirAtaque(ataquesCharmander[ataqueAElegirChar])
+        if (pikachu.vida <= 0) {
+            println(
+                "${pikachu.nombre} se debilitó.\n" +
+                        "" +
+                        "gana ${charmander.nombre} con ${charmander.vida} de vida restante"
+            )
         }
     }
-
-
-        /*
-        val equipo1 = listOf(pikachu)
-        val equipo2 = listOf(charmander)
-
-        // variables para el combate
-
-        var batallaAcabada = false
-        var equipo1Derrotado = false
-        var equipo2Derrotado = false
-        var contadorTurnos = 0
-        var pokemonSeleccionado = 0
-        var pokemonElegidoBoolean = false
-
-        // Comenzamos el combate
-        println("¡Comienza el combate!")
-        var equipoActivo = equipo1
-        var equipoRival = equipo2
-
-        while (batallaAcabada == false){
-            contadorTurnos += 1
-
-            println(" Empieza el turno $contadorTurnos\n\n")
-
-            println("Turno del equipo 1\n")
-
-            while (pokemonElegidoBoolean == false){
-
-                println("Elige el pokemon de tu equipo por su posición:\n" +
-                        "$equipo1\n")
-                var selectorPokemon = readln().toInt()
-
-                pokemonSeleccionado = selectorPokemon-1
-                pokemonElegidoBoolean= true
-
-
-
-            }
-
-            if (contadorTurnos>= 100) batallaAcabada= true
-
-
-
-
-
-
-
-
-
-        }*/
 }
