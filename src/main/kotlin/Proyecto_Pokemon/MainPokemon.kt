@@ -3,12 +3,16 @@ package Proyecto_Pokemon
 
 fun main(){
 
+
+
+
     var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("Electrico"), 100, 100)
     var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("Fuego"), 90, 150)
     var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("hierba"), 50, 90)
     var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 60)
     var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
 
+    var listaPokemon = listOf<Pokemon>(pikachu,charmander,bulbasur,machamp,squirtle)
 
     var Equipo1 = mutableListOf<Pokemon>()
     var Equipo2 = mutableListOf<Pokemon>()
@@ -20,8 +24,6 @@ fun main(){
     var elegirpokemon2 = readln().toInt()
 
     Equipo2.add(listaPokemon[elegirpokemon2])
-
-
 
 
 
@@ -40,13 +42,13 @@ fun main(){
     Ataque("Gruñido", Tipo("normal"), 5)
     )
 
-    fun mostrarAtaquesPick() {
+    fun mostrarAtaques1() {
         for (ataque in ataquesPikachu) {
             println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")
         }
     }
 
-    fun mostrarAtaquesChar(){
+    fun mostrarAtaques2(){
         for (ataque in ataquesCharmander) {
             println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")
         }
