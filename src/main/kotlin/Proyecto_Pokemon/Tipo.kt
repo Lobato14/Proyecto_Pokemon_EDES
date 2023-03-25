@@ -3,8 +3,6 @@ package Proyecto_Pokemon
 /**
  * ## Clase [Tipo]
  *
- * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
- *
  * La clase [Tipo] se utiliza para asignar un Tipo a un pokemon para saber si es neutro,
  * resistente o débil realizando un ataque o recibiéndolo.
  *
@@ -15,7 +13,7 @@ package Proyecto_Pokemon
  *
  * @param tipo String el cual se le asigna una Cadena la cual luego será comparada con las disponibles.
  *
- *
+ * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
  *
  */
 
