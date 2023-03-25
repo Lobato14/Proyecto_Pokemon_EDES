@@ -21,10 +21,6 @@ fun main(){
 
     Equipo2.add(listaPokemon[elegirpokemon2])
 
-
-
-
-
     // Listas de ataques de Picachu
     var ataquesPikachu = listOf(
         Ataque("Impactrueno", Tipo("eléctrico"), 20),
