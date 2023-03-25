@@ -29,22 +29,16 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.fuerza = fuerza
         this.vida = vida
     }
-    fun recibirAtaque(ataque: Ataque) {
-        var factor = if (ataque.tipo.tipo == tipo.tipo){
-            0.5
-        } else{
-            1.0
-        }
-        var danio = (ataque.danio * factor).toInt()
-        vida -= danio
-    }
 
-    fun tipoDebil(tipoAtaque: Tipo): String {
-        return if (tipo.esDebilContra(tipoAtaque.tipo)) {
-            tipoAtaque.tipo
-        } else {
-            "Este pokemon no es débil ante el otro"
+    // Recibe el ataque
+    fun recibirAtaque(ataque: Ataque) {
+        val efectividad = tipo.comprobarEfectividad(ataque.tipo)
+        val danio = when (efectividad) {
+            Tipo.Efectividad.MUY_EFECTIVO -> ataque.danio * 2
+            Tipo.Efectividad.POQUITO_EFECTIVO -> ataque.danio / 2
+            else -> ataque.danio
         }
+        vida -= danio
     }
     override fun toString(): String {
         return "Pokemon(nombre='$nombre', lore='$lore', tipo='$tipo', fuerza=$fuerza, vida=$vida)"
