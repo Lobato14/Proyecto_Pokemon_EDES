@@ -111,7 +111,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
 
     fun mostrarAtaque(){
 
-        ataques.getValue(tipo.toString())
+        ataques.get("elétrico")
     }
 
 
