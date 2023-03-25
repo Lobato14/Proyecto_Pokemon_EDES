@@ -1,20 +1,67 @@
 package Proyecto_Pokemon
 
-
 fun main(){
 
-
-
-    var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("Electrico"), 100, 100)
-    var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("Fuego"), 90, 150)
-    var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("hierba"), 50, 90)
+    var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("eléctrico"), 100, 100)
+    var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("fuego"), 90, 150)
+    var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("planta"), 50, 90)
     var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 60)
     var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
+
     var listaPokemon = listOf<Pokemon>(pikachu,charmander,bulbasur,machamp,squirtle)
 
 
+
+    // Listas de ataques de Electricidad
+    var ataquesElectrico = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Fuego
+    var ataquesFuego = listOf(
+        Ataque("Lanzallamas", Tipo("fuego"), 35),
+        Ataque("Arañazo", Tipo("normal"), 10),
+        Ataque("Ascuas", Tipo("fuego"), 25),
+        Ataque("Gruñido", Tipo("normal"), 5)
+    )
+    // Listas de ataques de Agua
+    var ataquesAgua = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Lucha
+    var ataquesLucha = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+    // Listas de ataques de Planta
+    var ataquesPlanta = listOf(
+        Ataque("Impactrueno", Tipo("eléctrico"), 20),
+        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Rayo", Tipo("eléctrico"), 40),
+        Ataque("Descarga", Tipo("eléctrico"), 25)
+    )
+
+    fun mostrarAtaque(pokemon: Pokemon){
+        when (pokemon.tipo.tipo){
+            "eléctrico" -> println(ataquesElectrico)
+            "fuego" -> println(ataquesFuego)
+            "agua" -> println(ataquesAgua)
+            "lucha" -> println(ataquesLucha)
+            "planta" -> println(ataquesPlanta)
+        }
+    }
+
     var Equipo1 = mutableListOf<Pokemon>()
     var Equipo2 = mutableListOf<Pokemon>()
+
+
     // Muestra la lista de los pokemon
     println("---Elige un Pokemon------")
     fun mostrarlistaPokemon(){
@@ -26,10 +73,16 @@ fun main(){
     var elegirpokemon1 = readln().toInt()-1
     Equipo1.add(listaPokemon[elegirpokemon1])
 
+    var ataques = mapOf("eléctrico" to ataquesElectrico, "fuego" to ataquesFuego, "agua" to ataquesAgua,
+        "lucha" to ataquesLucha, "planta" to ataquesPlanta)
+    var tipo1 = Equipo1[0].tipo.toString()
+    var lista1 = ataques.get(tipo1)
+
     println("---Elige un Pokemon------")
     mostrarlistaPokemon()
     var elegirpokemon2 = readln().toInt()-1
     Equipo2.add(listaPokemon[elegirpokemon2])
+
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
@@ -50,9 +103,10 @@ fun main(){
                     "\nElige un ataque:"
         )
         println("---------")
-        Equipo1[0].mostrarAtaque()
+        println(lista1)
+        var ataqueAelegir = readln()
         println("---------")
-        break
+
     }
         /*var ataqueAElegirPick = readln().toInt() - 1
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])

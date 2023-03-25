@@ -34,16 +34,16 @@ class Tipo(tipo:String) {
     fun comprobarEfectividad(tipoAtaque: Tipo): Efectividad {
         return when (tipo) {
             "fuego" -> when (tipoAtaque.tipo) {
-                "hierba" -> Efectividad.MUY_EFECTIVO
+                "planta" -> Efectividad.MUY_EFECTIVO
                 "agua" -> Efectividad.POQUITO_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             "agua" -> when (tipoAtaque.tipo) {
                 "fuego" -> Efectividad.MUY_EFECTIVO
-                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.POQUITO_EFECTIVO
                 else -> Efectividad.NORMAL
             }
-            "hierba" -> when (tipoAtaque.tipo) {
+            "planta" -> when (tipoAtaque.tipo) {
                 "agua" -> Efectividad.MUY_EFECTIVO
                 "fuego" -> Efectividad.POQUITO_EFECTIVO
                 else -> Efectividad.NORMAL
@@ -51,18 +51,21 @@ class Tipo(tipo:String) {
             "normal" -> Efectividad.NORMAL
             "eléctrico" -> when (tipoAtaque.tipo) {
                 "agua" -> Efectividad.MUY_EFECTIVO
-                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.POQUITO_EFECTIVO
                 "normal" -> Efectividad.POQUITO_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             "lucha" -> when (tipoAtaque.tipo) {
                 "normal" -> Efectividad.MUY_EFECTIVO
-                "hierba" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.POQUITO_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             else -> Efectividad.NORMAL
         }
     }
+
+
+
 
     override fun toString(): String {
         return "$tipo"

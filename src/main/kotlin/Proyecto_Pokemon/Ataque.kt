@@ -12,8 +12,9 @@ package Proyecto_Pokemon
  * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
  *
  */
-open class Ataque(var nombre: String, var tipo: Tipo, danio:Int) {
+class Ataque(nombre: String, var tipo: Tipo, danio:Int) {
 
+    var nombre = nombre
     var danio = danio
         set(value) {
             if (danio < 0){
@@ -26,6 +27,7 @@ open class Ataque(var nombre: String, var tipo: Tipo, danio:Int) {
     init {
         this.danio = danio
     }
+
 
 
     // Función to String
