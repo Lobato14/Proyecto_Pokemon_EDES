@@ -15,18 +15,21 @@ fun main(){
 
     var Equipo1 = mutableListOf<Pokemon>()
     var Equipo2 = mutableListOf<Pokemon>()
-
+    // Muestra la lista de los pokemon
+    println("---Elige un Pokemon------")
+    fun mostrarlistaPokemon(){
+        for(pokemon in listaPokemon){
+            println("Nombre: ${pokemon.nombre}, Lore: ${pokemon.lore}, Tipo: ${pokemon.tipo}, Fuerza: ${pokemon.fuerza}, Vida: ${pokemon.vida}")
+        }
+    }
+    mostrarlistaPokemon()
     var elegirpokemon1 = readln().toInt()-1
-
     Equipo1.add(listaPokemon[elegirpokemon1])
 
+    println("---Elige un Pokemon------")
+    mostrarlistaPokemon()
     var elegirpokemon2 = readln().toInt()-1
-
     Equipo2.add(listaPokemon[elegirpokemon2])
-
-
-
-
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
@@ -37,17 +40,20 @@ fun main(){
     // Turno del primer Pokemon
     var turno = 0
     while (Equipo1.size > 0 && Equipo2.size > 0) {
-        turno +=1
+        turno += 1
         // Mostrar el turno actual
         println("Turno $turno:")
         println("")
         // Elegir el ataque del primer Pokemon
-        println("Es el turno de ${Equipo1[0].nombre}.                  Vida Total:${Equipo1[0].vida}" +
-                "\nElige un ataque:")
+        println(
+            "Es el turno de ${Equipo1[0].nombre}.                  Vida Total:${Equipo1[0].vida}" +
+                    "\nElige un ataque:"
+        )
         println("---------")
         Equipo1[0].mostrarAtaque()
         println("---------")
-
+        break
+    }
         /*var ataqueAElegirPick = readln().toInt() - 1
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
         if (Equipo2[0].vida <= 0) {
@@ -80,4 +86,4 @@ fun main(){
             )
         }
     }*/
-}}
+}
