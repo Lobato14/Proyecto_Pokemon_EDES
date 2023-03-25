@@ -23,22 +23,6 @@ fun main(){
     Equipo2.add(listaPokemon[elegirpokemon2])
 
 
-
-    // Listas de ataques de Picachu
-    var ataquesPikachu = listOf(
-        Ataque("Impactrueno", Tipo("eléctrico"), 20),
-        Ataque("Cola Ferrea", Tipo("acero"), 10),
-        Ataque("Rayo", Tipo("eléctrico"), 40),
-        Ataque("Descarga", Tipo("eléctrico"), 25)
-    )
-    // Listas de ataques de Charmander
-    var ataquesCharmander = listOf(
-    Ataque("Lanzallamas", Tipo("fuego"), 35),
-    Ataque("Arañazo", Tipo("normal"), 10),
-    Ataque("Ascuas", Tipo("fuego"), 25),
-    Ataque("Gruñido", Tipo("normal"), 5)
-    )
-
     fun mostrarAtaques1() {
         for (ataque in ataquesPikachu) {
             println("${ataque.nombre} - Tipo: ${ataque.tipo} - Daño: ${ataque.danio}")
