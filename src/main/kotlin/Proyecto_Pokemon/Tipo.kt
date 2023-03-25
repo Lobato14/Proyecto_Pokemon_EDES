@@ -69,4 +69,8 @@ class Tipo(tipo:String) {
             else -> Efectividad.NORMAL
         }
     }
+
+    override fun toString(): String {
+        return "$tipo"
+    }
 }

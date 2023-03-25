@@ -53,6 +53,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
             else -> ataque.danio
         }
         vida -= danio
+        println("$vida")
     }
 
     // Función toString
