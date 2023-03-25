@@ -1,5 +1,18 @@
 package Proyecto_Pokemon
 
+/**
+ * ## Clase [Pokemon]
+ *
+ * Creamos una función que reciba el ataque del otro pokemon.
+ *
+ * @param nombre nombre del pokemon.
+ * @param lore lore del pokemon
+ * @param tipo tipo de pokemon.
+ * @param fuerza fuerza del pokemon.
+ *
+ * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
+ *
+ */
 class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
 
     var nombre = nombre
@@ -22,6 +35,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
             }
         }
 
+    // Inicializamos las variables
     init {
         this.nombre = nombre
         this.lore = lore
@@ -30,7 +44,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         this.vida = vida
     }
 
-    // Recibe el ataque
+    // Función que recibe el ataque
     fun recibirAtaque(ataque: Ataque) {
         val efectividad = tipo.comprobarEfectividad(ataque.tipo)
         val danio = when (efectividad) {
@@ -40,6 +54,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
         }
         vida -= danio
     }
+
+    // Función toString
     override fun toString(): String {
         return "Pokemon(nombre='$nombre', lore='$lore', tipo='$tipo', fuerza=$fuerza, vida=$vida)"
     }

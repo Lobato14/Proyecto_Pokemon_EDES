@@ -3,7 +3,6 @@ package Proyecto_Pokemon
 /**
  * ## Clase [Pokemon]
  *
- *
  * @param pokemon da el nombre a dicho pokemon
  * @author Rubén Celis Lobato y Felipe Alvarado Chamorro
  */
