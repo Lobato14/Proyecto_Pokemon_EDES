@@ -28,8 +28,6 @@ class Ataque(nombre: String, var tipo: Tipo, danio:Int) {
         this.danio = danio
     }
 
-
-
     // Función to String
     override fun toString(): String {
         return "Ataque(nombre='$nombre', tipo=$tipo, danio=$danio)"
