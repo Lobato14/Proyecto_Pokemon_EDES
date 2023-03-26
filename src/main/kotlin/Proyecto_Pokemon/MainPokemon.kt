@@ -107,6 +107,7 @@ fun main(){
         var ataqueAelegir = readln()
         println("---------")
 
+
     }
         /*var ataqueAElegirPick = readln().toInt() - 1
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
