@@ -46,7 +46,7 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
 
 
     // Función para que el Pokemon ataque
-    fun atacar(ataque: Ataque, objetivo: Pokemon) {
+    open fun atacar(ataque: Ataque, objetivo: Pokemon) {
         println("$nombre realiza ${ataque.nombre}")
         objetivo.recibirAtaque(ataque)
     }
@@ -66,6 +66,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
     override fun toString(): String {
         return "Pokemon(nombre='$nombre', lore='$lore', tipo='$tipo', fuerza=$fuerza, vida=$vida)"
     }
+
+
 
 
 }

@@ -56,29 +56,34 @@ fun main(){
     }
 
     // Creación de los jugadores que almacenan los pokemon
+
     var jugador1 = mutableListOf<Pokemon>()
     var jugador2 = mutableListOf<Pokemon>()
 
     // Elección del pokemon
-    println("---Elige un Pokemon segun su orden: del 1 al 5------")
+    println("---Elige un Pokemon Jugador 1 del 1 al 5------")
     mostrarlistaPokemon()
     println("-------------------------")
-    var elegirpokemon1 = readln().toInt()-1
-    jugador1.add(listaPokemon[elegirpokemon1])
+    var elegirPokemon1 = readLine()?.toInt()?.minus(1) ?: 0
+    jugador1.add(listaPokemon[elegirPokemon1])
 
     // Mapa de los tipos de ataque según el pokemon
-    var ataques = mapOf("eléctrico" to ataquesElectrico, "fuego" to ataquesFuego, "agua" to ataquesAgua,
-        "lucha" to ataquesLucha, "planta" to ataquesPlanta)
-
+    var ataques = mapOf(
+        "eléctrico" to ataquesElectrico,
+        "fuego" to ataquesFuego,
+        "agua" to ataquesAgua,
+        "lucha" to ataquesLucha,
+        "planta" to ataquesPlanta
+    )
 
     var tipo1 = jugador1[0].tipo.toString()
-    var lista1 = ataques.get(tipo1)
+    var lista1 = ataques.getOrDefault(tipo1, emptyList())
 
-    println("---Elige un Pokemon------")
+    println("---Elige un Pokemon Jugador 2 del 1 al 5------")
     mostrarlistaPokemon()
-    var elegirpokemon2 = readln().toInt()-1
-    jugador2.add(listaPokemon[elegirpokemon2])
-
+    println("-------------------------")
+    var elegirPokemon2 = readLine()?.toInt()?.minus(1) ?: 0
+    jugador2.add(listaPokemon[elegirPokemon2])
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
@@ -100,13 +105,19 @@ fun main(){
                     "\nElige un ataque:"
         )
         println("---------")
-        println(lista1)
-        var ataqueAelegirJug1 = readln()
+        lista1.forEachIndexed { index, ataque -> println("${index+1}. $ataque") }
         println("---------")
+        var ataqueAelegirJug1 = readLine()?.toInt() ?: 1
         break
+
+
+        //jugador2[0].recibirAtaque(jugador1[0].atacar(listaAtaquesJug1[ataqueAelegirJug1-1]))
+
     }
-    /*
-        charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
+
+        //jugador1.add(listaPokemon[elegirpokemon1])
+
+        /*
         if (Equipo2[0].vida <= 0) {
             println(
                 "${Equipo2[0].nombre} se debilitó.\n" +
