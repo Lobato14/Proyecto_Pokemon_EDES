@@ -2,15 +2,15 @@ package Proyecto_Pokemon
 
 fun main(){
 
+    // Creacion de los pokemon
     var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("eléctrico"), 100, 100)
     var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("fuego"), 90, 150)
     var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("planta"), 50, 90)
     var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 60)
     var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
 
+    // Lista de los pokemon a elegir
     var listaPokemon = listOf<Pokemon>(pikachu,charmander,bulbasur,machamp,squirtle)
-
-
 
     // Listas de ataques de Electricidad
     var ataquesElectrico = listOf(
@@ -48,67 +48,63 @@ fun main(){
         Ataque("Descarga", Tipo("eléctrico"), 25)
     )
 
-    fun mostrarAtaque(pokemon: Pokemon){
-        when (pokemon.tipo.tipo){
-            "eléctrico" -> println(ataquesElectrico)
-            "fuego" -> println(ataquesFuego)
-            "agua" -> println(ataquesAgua)
-            "lucha" -> println(ataquesLucha)
-            "planta" -> println(ataquesPlanta)
-        }
-    }
-
-    var Equipo1 = mutableListOf<Pokemon>()
-    var Equipo2 = mutableListOf<Pokemon>()
-
-
-    // Muestra la lista de los pokemon
-    println("---Elige un Pokemon------")
+    // Fución que muestra la lista de los pokemon
     fun mostrarlistaPokemon(){
         for(pokemon in listaPokemon){
             println("Nombre: ${pokemon.nombre}, Lore: ${pokemon.lore}, Tipo: ${pokemon.tipo}, Fuerza: ${pokemon.fuerza}, Vida: ${pokemon.vida}")
         }
     }
-    mostrarlistaPokemon()
-    var elegirpokemon1 = readln().toInt()-1
-    Equipo1.add(listaPokemon[elegirpokemon1])
 
+    // Creación de los jugadores que almacenan los pokemon
+    var jugador1 = mutableListOf<Pokemon>()
+    var jugador2 = mutableListOf<Pokemon>()
+
+    // Elección del pokemon
+    println("---Elige un Pokemon segun su orden: del 1 al 5------")
+    mostrarlistaPokemon()
+    println("-------------------------")
+    var elegirpokemon1 = readln().toInt()-1
+    jugador1.add(listaPokemon[elegirpokemon1])
+
+    // Mapa de los tipos de ataque según el pokemon
     var ataques = mapOf("eléctrico" to ataquesElectrico, "fuego" to ataquesFuego, "agua" to ataquesAgua,
         "lucha" to ataquesLucha, "planta" to ataquesPlanta)
-    var tipo1 = Equipo1[0].tipo.toString()
+
+
+    var tipo1 = jugador1[0].tipo.toString()
     var lista1 = ataques.get(tipo1)
 
     println("---Elige un Pokemon------")
     mostrarlistaPokemon()
     var elegirpokemon2 = readln().toInt()-1
-    Equipo2.add(listaPokemon[elegirpokemon2])
+    jugador2.add(listaPokemon[elegirpokemon2])
 
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
     println("---¡COMIENZA LA BATALLA POKEMON!----")
-    println("------${Equipo1[0].nombre} VS ${Equipo2[0].nombre}------")
+    println("------${jugador1[0].nombre} VS ${jugador2[0].nombre}------")
     println("------------------------------------")
 
     // Turno del primer Pokemon
     var turno = 0
-    while (Equipo1.size > 0 && Equipo2.size > 0) {
+    while (jugador1.size > 0 && jugador2.size > 0) {
         turno += 1
         // Mostrar el turno actual
         println("Turno $turno:")
         println("")
         // Elegir el ataque del primer Pokemon
         println(
-            "Es el turno de ${Equipo1[0].nombre}.                  Vida Total:${Equipo1[0].vida}" +
+            "Es el turno de ${jugador1[0].nombre}.                  Vida Total:${jugador1[0].vida}" +
                     "\nElige un ataque:"
         )
         println("---------")
         println(lista1)
-        var ataqueAelegir = readln()
+        var ataqueAelegirJug1 = readln()
         println("---------")
-
+        break
     }
-        /*var ataqueAElegirPick = readln().toInt() - 1
+    /*
         charmander.recibirAtaque(ataquesPikachu[ataqueAElegirPick])
         if (Equipo2[0].vida <= 0) {
             println(
