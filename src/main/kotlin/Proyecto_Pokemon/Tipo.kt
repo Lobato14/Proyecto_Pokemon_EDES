@@ -27,20 +27,21 @@ class Tipo(tipo:String) {
     // Tipo de efectividad
     enum class Efectividad {
         NORMAL,
-        MUY_EFECTIVO,
-        POQUITO_EFECTIVO
+        POQUITO_EFECTIVO,
+        MUY_EFECTIVO
+
     }
-    // Funcion que comprueba la efectividad
+    // Funcion que comprueba la defensa del Pokemon
     fun comprobarEfectividad(tipoAtaque: Tipo): Efectividad {
         return when (tipo) {
             "fuego" -> when (tipoAtaque.tipo) {
-                "planta" -> Efectividad.MUY_EFECTIVO
-                "agua" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.POQUITO_EFECTIVO
+                "agua" -> Efectividad.MUY_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             "agua" -> when (tipoAtaque.tipo) {
-                "fuego" -> Efectividad.MUY_EFECTIVO
-                "planta" -> Efectividad.POQUITO_EFECTIVO
+                "fuego" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.MUY_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             "planta" -> when (tipoAtaque.tipo) {
@@ -50,14 +51,14 @@ class Tipo(tipo:String) {
             }
             "normal" -> Efectividad.NORMAL
             "eléctrico" -> when (tipoAtaque.tipo) {
-                "agua" -> Efectividad.MUY_EFECTIVO
-                "planta" -> Efectividad.POQUITO_EFECTIVO
-                "normal" -> Efectividad.POQUITO_EFECTIVO
+                "agua" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.MUY_EFECTIVO
+                "normal" -> Efectividad.MUY_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             "lucha" -> when (tipoAtaque.tipo) {
-                "normal" -> Efectividad.MUY_EFECTIVO
-                "planta" -> Efectividad.POQUITO_EFECTIVO
+                "normal" -> Efectividad.POQUITO_EFECTIVO
+                "planta" -> Efectividad.MUY_EFECTIVO
                 else -> Efectividad.NORMAL
             }
             else -> Efectividad.NORMAL

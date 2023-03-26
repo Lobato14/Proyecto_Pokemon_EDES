@@ -28,30 +28,38 @@ fun main(){
     )
     // Listas de ataques de Agua
     var ataquesAgua = listOf(
-        Ataque("Agua lodosa", Tipo("Agua"), 20),
-        Ataque("Danza lluvia", Tipo("Agua"), 0),
-        Ataque("Hidrobomba", Tipo("Agua"), 45),
-        Ataque("Surf", Tipo("Agua"), 35)
+        Ataque("Agua lodosa", Tipo("agua"), 20),
+        Ataque("Danza lluvia", Tipo("agua"), 0),
+        Ataque("Hidrobomba", Tipo("agua"), 45),
+        Ataque("Surf", Tipo("agua"), 35)
     )
     // Listas de ataques de Lucha
     var ataquesLucha = listOf(
-        Ataque("Doble patada", Tipo("Lucha"), 12+15),
-        Ataque("Onda certera", Tipo("Lucha"), 30),
-        Ataque("Palmeo", Tipo("Lucha"), 25),
-        Ataque("Ultrapuño", Tipo("Lucha"), 30)
+        Ataque("Doble patada", Tipo("lucha"), 12+15),
+        Ataque("Onda certera", Tipo("lucha"), 30),
+        Ataque("Palmeo", Tipo("lucha"), 25),
+        Ataque("Ultrapuño", Tipo("lucha"), 30)
     )
     // Listas de ataques de Planta
     var ataquesPlanta = listOf(
-        Ataque("Látigo Cepa", Tipo("Planta"), 15),
-        Ataque("Drenadoras", Tipo("Planta"), 5),
-        Ataque("Energibola", Tipo("Planta"), 35),
-        Ataque("Rayo solar", Tipo("Planta"), 35)
+        Ataque("Látigo Cepa", Tipo("planta"), 15),
+        Ataque("Drenadoras", Tipo("planta"), 5),
+        Ataque("Energibola", Tipo("planta"), 35),
+        Ataque("Rayo solar", Tipo("planta"), 35)
     )
 
+    // Mapa de los tipos de ataque según el pokemon
+    var ataques = mapOf(
+        "eléctrico" to ataquesElectrico,
+        "fuego" to ataquesFuego,
+        "agua" to ataquesAgua,
+        "lucha" to ataquesLucha,
+        "planta" to ataquesPlanta
+    )
     // Fución que muestra la lista de los pokemon
     fun mostrarlistaPokemon(){
         for(pokemon in listaPokemon){
-            println("Nombre: ${pokemon.nombre}, Lore: ${pokemon.lore}, Tipo: ${pokemon.tipo}, Fuerza: ${pokemon.fuerza}, Vida: ${pokemon.vida}")
+            println("${pokemon.nombre} | Lore: ${pokemon.lore} | Tipo: ${pokemon.tipo} | Fuerza: ${pokemon.fuerza} | Vida: ${pokemon.vida}")
         }
     }
 
@@ -66,16 +74,6 @@ fun main(){
     println("-------------------------")
     var elegirPokemon1 = readLine()?.toInt()?.minus(1) ?: 0
     jugador1.add(listaPokemon[elegirPokemon1])
-
-    // Mapa de los tipos de ataque según el pokemon
-    var ataques = mapOf(
-        "eléctrico" to ataquesElectrico,
-        "fuego" to ataquesFuego,
-        "agua" to ataquesAgua,
-        "lucha" to ataquesLucha,
-        "planta" to ataquesPlanta
-    )
-
     var tipo1 = jugador1[0].tipo.toString()
     var lista1 = ataques.getOrDefault(tipo1, emptyList())
 
@@ -84,6 +82,8 @@ fun main(){
     println("-------------------------")
     var elegirPokemon2 = readLine()?.toInt()?.minus(1) ?: 0
     jugador2.add(listaPokemon[elegirPokemon2])
+    var tipo2 = jugador2[0].tipo.toString()
+    var lista2 = ataques.getOrDefault(tipo2, emptyList())
 
     // Mostrar los Pokemon que se enfrentarán
     println("------------------------------------")
@@ -107,46 +107,43 @@ fun main(){
         println("---------")
         lista1.forEachIndexed { index, ataque -> println("${index+1}. $ataque") }
         println("---------")
-        var ataqueAelegirJug1 = readLine()?.toInt() ?: 1
-        break
+        var ataqueAelegirJug1 = readLine()?.toInt()?.minus(1) ?: 0
 
+        println("${jugador1[0].nombre} usó ${lista1[ataqueAelegirJug1]}!")
+        jugador2[0].recibirAtaque(lista1[ataqueAelegirJug1])
 
-        //jugador2[0].recibirAtaque(jugador1[0].atacar(listaAtaquesJug1[ataqueAelegirJug1-1]))
-
-
-    }
-
-        //jugador1.add(listaPokemon[elegirpokemon1])
-
-        /*
-        if (Equipo2[0].vida <= 0) {
+        if (jugador2[0].vida <= 0) {
             println(
-                "${Equipo2[0].nombre} se debilitó.\n" +
+                "${jugador2[0].nombre} se debilitó.\n" +
                         "" +
-                        "gana ${Equipo1[0].nombre} con ${Equipo1[0].vida} de vida restante"
+                        "gana ${jugador1[0].nombre} con ${jugador1[0].vida} de vida restante"
             )
+            jugador2.removeAt(0)
+            break
         }
-
         // Elegir el ataque del segundo Pokemon
-        println("Es el turno de ${Equipo2[0].nombre}.                  Vida Total:${Equipo2[0].vida}" +
+        println("Es el turno de ${jugador2[0].nombre}.                  Vida Total:${jugador2[0].vida}" +
                 "\nElige un ataque:")
         println("---------")
-        mostrarAtaques2()
+        lista2.forEachIndexed { index, ataque -> println("${index+1}. $ataque") }
         println("---------")
 
-        var ataqueAElegirChar = readln().toInt() - 1
+        var ataqueAelegirJug2 = readLine()?.toInt()?.minus(1) ?: 0
         // Mostrar los ataques que se van a realizar
-        println("${Equipo1[0].nombre} usó ${ataquesPikachu[ataqueAElegirPick]}!")
-        println("${Equipo2[0].nombre} usó ${ataquesCharmander[ataqueAElegirChar]}!")
+        println("${jugador2[0].nombre} usó ${lista2[ataqueAelegirJug2]}!")
         println("---------------")
         // Calcular el daño que reciben los Pokemon
-        pikachu.recibirAtaque(ataquesCharmander[ataqueAElegirChar])
-        if (Equipo1[0].vida <= 0) {
+        jugador1[0].recibirAtaque(lista2[ataqueAelegirJug2])
+        if (jugador1[0].vida <= 0) {
             println(
-                "${Equipo1[0].nombre} se debilitó.\n" +
+                "${jugador1[0].nombre} se debilitó.\n" +
                         "" +
-                        "gana ${Equipo2[0].nombre} con ${Equipo2[0].vida} de vida restante"
+                        "gana ${jugador2[0].nombre} con ${jugador2[0].vida} de vida restante"
             )
+            jugador1.removeAt(0)
+            break
         }
-    }*/
+    }
+
+    println("Fin de la Partida")
 }

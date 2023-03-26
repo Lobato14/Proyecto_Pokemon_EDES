@@ -55,8 +55,8 @@ class Pokemon(nombre:String, lore:String, tipo:Tipo, fuerza:Int, vida:Int) {
     fun recibirAtaque(ataque: Ataque) {
         val efectividad = tipo.comprobarEfectividad(ataque.tipo)
         val danio = when (efectividad) {
-            Tipo.Efectividad.MUY_EFECTIVO -> ataque.danio * 2
-            Tipo.Efectividad.POQUITO_EFECTIVO -> ataque.danio / 2
+            Tipo.Efectividad.MUY_EFECTIVO-> ataque.danio * 2
+            Tipo.Efectividad.POQUITO_EFECTIVO-> ataque.danio / 2
             else -> ataque.danio
         }
         vida -= danio
