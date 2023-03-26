@@ -89,6 +89,7 @@ fun main(){
     // Turno del primer Pokemon
     var turno = 0
     while (jugador1.size > 0 && jugador2.size > 0) {
+        // Contador para los tunos
         turno += 1
         // Mostrar el turno actual
         println("Turno $turno:")
