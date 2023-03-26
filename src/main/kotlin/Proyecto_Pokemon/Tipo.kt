@@ -65,9 +65,6 @@ class Tipo(tipo:String) {
         }
     }
 
-
-
-
     override fun toString(): String {
         return "$tipo"
     }
