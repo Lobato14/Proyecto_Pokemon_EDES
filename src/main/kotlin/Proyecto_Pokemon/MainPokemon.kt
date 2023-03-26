@@ -29,7 +29,7 @@ fun main(){
     // Listas de ataques de Agua
     var ataquesAgua = listOf(
         Ataque("Agua lodosa", Tipo("agua"), 20),
-        Ataque("Danza lluvia", Tipo("agua"), 0),
+        Ataque("Danza Lluvia", Tipo("agua"), 0),
         Ataque("Hidrobomba", Tipo("agua"), 45),
         Ataque("Surf", Tipo("agua"), 35)
     )
