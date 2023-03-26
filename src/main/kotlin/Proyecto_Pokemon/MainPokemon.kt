@@ -3,11 +3,11 @@ package Proyecto_Pokemon
 fun main(){
 
     // Creacion de los pokemon
-    var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("eléctrico"), 100, 100)
-    var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("fuego"), 90, 150)
-    var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("planta"), 50, 90)
-    var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 60)
-    var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 45)
+    var pikachu = Pokemon("Pikachu", "Ratón eléctrico", Tipo("eléctrico"), 100, 80)
+    var charmander = Pokemon("Charmander", "Lagarto de fuego", Tipo("fuego"), 90, 75)
+    var bulbasur = Pokemon("Bulbasur", "Bicho Planta", Tipo("planta"), 50, 110)
+    var machamp = Pokemon("Machamp", "Luchador", Tipo("lucha"), 70, 90)
+    var squirtle = Pokemon("Squirtle", "Tortuga de Agua", Tipo("agua"), 30, 80)
 
     // Lista de los pokemon a elegir
     var listaPokemon = listOf<Pokemon>(pikachu,charmander,bulbasur,machamp,squirtle)
@@ -15,37 +15,37 @@ fun main(){
     // Listas de ataques de Electricidad
     var ataquesElectrico = listOf(
         Ataque("Impactrueno", Tipo("eléctrico"), 20),
-        Ataque("Cola Ferrea", Tipo("acero"), 10),
+        Ataque("Parálisis", Tipo("eléctrico"), 10),
         Ataque("Rayo", Tipo("eléctrico"), 40),
         Ataque("Descarga", Tipo("eléctrico"), 25)
     )
     // Listas de ataques de Fuego
     var ataquesFuego = listOf(
-        Ataque("Lanzallamas", Tipo("fuego"), 35),
-        Ataque("Arañazo", Tipo("normal"), 10),
+        Ataque("Lanzallamas", Tipo("fuego"), 40),
+        Ataque("Estallido", Tipo("fuego"), 10),
         Ataque("Ascuas", Tipo("fuego"), 25),
-        Ataque("Gruñido", Tipo("normal"), 5)
+        Ataque("Colmillo ígneo", Tipo("fuego"), 5)
     )
     // Listas de ataques de Agua
     var ataquesAgua = listOf(
-        Ataque("Impactrueno", Tipo("eléctrico"), 20),
-        Ataque("Cola Ferrea", Tipo("acero"), 10),
-        Ataque("Rayo", Tipo("eléctrico"), 40),
-        Ataque("Descarga", Tipo("eléctrico"), 25)
+        Ataque("Agua lodosa", Tipo("Agua"), 20),
+        Ataque("Danza lluvia", Tipo("Agua"), 0),
+        Ataque("Hidrobomba", Tipo("Agua"), 45),
+        Ataque("Surf", Tipo("Agua"), 35)
     )
     // Listas de ataques de Lucha
     var ataquesLucha = listOf(
-        Ataque("Impactrueno", Tipo("eléctrico"), 20),
-        Ataque("Cola Ferrea", Tipo("acero"), 10),
-        Ataque("Rayo", Tipo("eléctrico"), 40),
-        Ataque("Descarga", Tipo("eléctrico"), 25)
+        Ataque("Doble patada", Tipo("Lucha"), 12+15),
+        Ataque("Onda certera", Tipo("Lucha"), 30),
+        Ataque("Palmeo", Tipo("Lucha"), 25),
+        Ataque("Ultrapuño", Tipo("Lucha"), 30)
     )
     // Listas de ataques de Planta
     var ataquesPlanta = listOf(
-        Ataque("Impactrueno", Tipo("eléctrico"), 20),
-        Ataque("Cola Ferrea", Tipo("acero"), 10),
-        Ataque("Rayo", Tipo("eléctrico"), 40),
-        Ataque("Descarga", Tipo("eléctrico"), 25)
+        Ataque("Látigo Cepa", Tipo("Planta"), 15),
+        Ataque("Drenadoras", Tipo("Planta"), 5),
+        Ataque("Energibola", Tipo("Planta"), 35),
+        Ataque("Rayo solar", Tipo("Planta"), 35)
     )
 
     // Fución que muestra la lista de los pokemon
