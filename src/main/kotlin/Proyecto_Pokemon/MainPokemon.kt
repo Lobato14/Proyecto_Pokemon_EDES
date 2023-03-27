@@ -99,6 +99,7 @@ fun main(){
         // Mostrar el turno actual
         println("Turno $turno:")
         println("")
+        println("------------")
         // Elegir el ataque del primer Pokemon
         println(
             "Es el turno de ${jugador1[0].nombre}.                  Vida Total:${jugador1[0].vida}" +
@@ -138,12 +139,12 @@ fun main(){
             println(
                 "${jugador1[0].nombre} se debilitó.\n" +
                         "" +
-                        "gana ${jugador2[0].nombre} con ${jugador2[0].vida} de vida restante"
+                        "Gana ${jugador2[0].nombre} con ${jugador2[0].vida} de vida restante"
             )
             jugador1.removeAt(0)
             break
         }
     }
-
+    println("-----------------")
     println("Fin de la Partida")
 }
